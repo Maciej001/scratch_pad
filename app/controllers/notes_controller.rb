@@ -1,8 +1,7 @@
 class NotesController < ApplicationController
 
 helper_method :notes, :note
-
-	def index
+	def notes
 		@notes ||= Note.all
 	end
 
