@@ -1,5 +1,5 @@
 %ul
-	= notes.each do |note| # here we dont use @notes, but notes helper method defined in controller
+	= @notes.each do |note| 
 		%li
 			%dl
 				%dt Title
