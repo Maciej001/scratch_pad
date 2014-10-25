@@ -1,0 +1,10 @@
+%ul
+	= notes.each do |note| # here we dont use @notes, but notes helper method defined in controller
+		%li
+			%dl
+				%dt Title
+				%dd
+					= link_to note.title, note
+				%dt Content
+				%dd
+					= note.content
