@@ -2,18 +2,21 @@
 #
 # Main App file
 
-window.ScratchPad =
+window.App =
 	Models: {}
 	Collections: {}
 	Views: {}
 	Routers: {}
 	initialize: ->
+		@AllNotes = [
+			{ id: 1, title: "The first note.", content: "I am  note" }
+			{ id: 2, title: "The second note.", content: "" }
+			{ id: 3, title: "The third note.", content: "I am last note" }
+		]
 		new @Routers.ScratchPadRouter
 		Backbone.history.start( pushState: true )
 
-window.App = window.ScratchPad
-
 $ ->
-	ScratchPad.initialize() 
+	App.initialize() 
 
 

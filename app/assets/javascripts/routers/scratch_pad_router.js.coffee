@@ -9,8 +9,7 @@ class App.Routers.ScratchPadRouter extends Backbone.Router
 	}
 
 	index: ->
-		alert("index view")
-		
+		alert 'hi from index'
+
 	showNote: (id) ->
-		alert("new note")
 		alert("You requested the note with the id of #{id}")

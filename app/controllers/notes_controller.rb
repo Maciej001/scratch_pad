@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
 
 helper_method :notes, :note
+
 	def notes
 		@notes ||= Note.all
 	end
