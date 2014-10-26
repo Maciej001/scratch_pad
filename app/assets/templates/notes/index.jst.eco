@@ -1,11 +1,19 @@
 <ul>
+
+	<!-- # I don't get it why we use @notes: with collon at the end -->
   <% for note in @notes: %>
     <li>
       <dl>
         <dt>Title</dt>
-        <dd><a href="/notes/<%= note.id  %>"><%= note.title %></a></dd>
+
+        <!-- in order to be able to use note.url() you have to define rootUrl for the model  -->
+        <!-- in model file  -->
+				<dd><a href="<%= note.url()  %>"><%= note.get('title') %></a></dd>
+
         <dt>Content</dt>
-        <dd><%= note.content %></dd>
+        <dd><%= note.get('content') %></dd>
     </li>
-  <% end %>
+	<% end %>
 </ul>
+
+
