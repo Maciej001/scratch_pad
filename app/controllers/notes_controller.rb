@@ -7,6 +7,6 @@ helper_method :notes, :note
 	end
 
 	def note
-		@note ||= Note.find(params[:id])
+		@note ||= Note.find(params[:id]) 
 	end
 end

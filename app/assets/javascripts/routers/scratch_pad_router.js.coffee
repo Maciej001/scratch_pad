@@ -5,11 +5,10 @@
 class App.Routers.ScratchPadRouter extends Backbone.Router
 	routes: {
 		'': 'index'
-		'/notes/id': 'showNote'
+		'notes/:id': 'showNote'
 	}
 
 	index: ->
-		alert 'hi from index'
 
 	showNote: (id) ->
-		alert("You requested the note with the id of #{id}")
+		alert "You requested the note with the id of #{id}" 
