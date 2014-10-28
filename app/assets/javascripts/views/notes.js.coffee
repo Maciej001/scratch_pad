@@ -1,10 +1,8 @@
 class App.Views.Notes extends Backbone.View
-
 	# This view uses collection: AllNotes
-
 	# 'notes/index' path to the template file in templates/notes/index.jst.eco
 	template: JST['notes/index'] 
-
+ 
 	events: 
 		'click a': 'showNote'
 
