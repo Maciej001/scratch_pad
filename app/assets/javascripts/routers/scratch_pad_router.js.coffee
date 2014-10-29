@@ -19,7 +19,11 @@ class App.Routers.ScratchPadRouter extends Backbone.Router
 	showNote: (id) ->
 		# when note gets clicked on Index page we just grab it in model and pass to the view
 		# we can pass either model or collection
-		model = App.AllNotes[ id - 1 ]
+
+		# as AllNotes is now a collection we cannot longer access it as if it were an array
+		# model = App.AllNotes[ id - 1 ]
+
+		model = App.AllNotes.get(id)
 		view = new App.Views.EditNote( model: model )
 
 		# render the view

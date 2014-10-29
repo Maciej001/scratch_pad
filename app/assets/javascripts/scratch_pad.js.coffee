@@ -14,6 +14,8 @@ window.ScratchPad =
 		# after collection is created 
 		# we are using => instead of -> as this changes the meaning here
 		# and we still want to address @Routers
+		# make sure that you display data only after we fetched the data
+		# and populated the collection
 		@AllNotes.fetch().done =>
 			new @Routers.ScratchPadRouter
 			Backbone.history.start(pushState: true)
