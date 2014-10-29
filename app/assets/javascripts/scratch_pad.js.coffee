@@ -8,15 +8,15 @@ window.ScratchPad =
 	Views: {}
 	Routers: {}
 	initialize: ->
-		@AllNotes = [
-			# models don't know anything about your database structure,
-			# they just accept hash of attributes and render them for you 
-			new @Models.Note ( id: 1, title: "The first note.", content: "I am the first note") 
-			new @Models.Note ( id: 2, title: "The second note.", content: "" )
-			new @Models.Note ( id: 3, title: "The third note.", content: "I am last note" )
-		]
-		new @Routers.ScratchPadRouter
-		Backbone.history.start(pushState: true)
+		@AllNotes = new @Collections.Notes
+
+		# done is a callback function, so Router is created only 
+		# after collection is created 
+		# we are using => instead of -> as this changes the meaning here
+		# and we still want to address @Routers
+		@AllNotes.fetch().done =>
+			new @Routers.ScratchPadRouter
+			Backbone.history.start(pushState: true)
 
 window.App = window.ScratchPad
 
