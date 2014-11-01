@@ -1,0 +1,8 @@
+<dl>
+	<dt>Title</dt>
+	<!-- originally href="<%= @note.url()%> but now 
+	ShowNote view took ever the logic -->
+	<dd><a href="<%= @note.url()%>" class="edit-note"><%= @note.get('title') %></a></dd>
+	<dt>Content</dt>
+	<dd><%= @note.get('content') %></dd>
+</dl>
