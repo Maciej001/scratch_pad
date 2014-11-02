@@ -1,8 +1,19 @@
-<dl>
+<!-- <dl>
 	<dt>Title</dt>
-	<!-- originally href="<%= @note.url()%> but now 
-	ShowNote view took ever the logic -->
-	<dd><a href="<%= @note.url()%>" class="edit-note"><%= @note.get('title') %></a></dd>
+	originally href="<%= @note.url()%> but now 
+	ShowNote view took ever the logic 
+	<dd><a href="#" class="edit-note"><%= @note.get('title') %></a></dd>
 	<dt>Content</dt>
 	<dd><%= @note.get('content') %></dd>
-</dl>
+</dl> -->
+
+<header class="title-container">
+	<input type="text" class="note-title" value="<%= @note.get('title') %>" />
+</header>
+<div class="body">
+	<textarea class="note-content"><%= @note.get("content") %></textarea> 
+</div>
+
+<div class="footer">
+	<button class="save save-note">Save</button>
+</div>
