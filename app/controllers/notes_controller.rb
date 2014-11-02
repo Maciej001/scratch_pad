@@ -14,9 +14,15 @@ class NotesController < ApplicationController
 		respond_with note
 	end
 
+
+	# normally update just returns 204 code that record has been updated
+	# we need json response so we can trigger time update.
 	def update
 		note.update_attributes(notes_params)
-		respond_with note
+
+		respond_with( note ) do |format| 
+			format.json { render json: note }
+		end
 	end
 
  	def destroy

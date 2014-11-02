@@ -11,14 +11,25 @@ class App.Views.ShowNote extends Backbone.View
 		'click .destroy-note': 'destroyNote'
 
 	initialize: ->
-		@listenTo(@model, "invalid", @addError)
-		@listenTo(@model, "error", @addError)
+		@listenTo( @model, "invalid", @addError )
+		@listenTo( @model, "error", @addError )
+
+		# view with last_updated time stamp
+		@lastUpdated = new App.Views.LastUpdated( model: @model )
 
 	render: ->
 		@$el.html( @template(note: @model) )
+
+		@lastUpdated.setElement(@$('.normal-footer')).render()
 		this   
 
+	# because of useing view lastUpdated let's overwrite remove
+	remove: -> 
+		@lastUpdated.remove(arguments...)
+		super(arguments...)
+
 	save: ->
+		console.log 'saving...'
 		@model.set 
 			title: @$('.note-title').val()
 			content: @$('.note-content').val()
@@ -44,4 +55,3 @@ class App.Views.ShowNote extends Backbone.View
 
 	addError: =>
 		@$el.addClass("error")
-		console.log("error...")

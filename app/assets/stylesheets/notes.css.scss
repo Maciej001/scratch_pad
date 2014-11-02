@@ -1,4 +1,5 @@
 $light-gray: 	#ddd;
+$gray: 				#666;
 * {
 	font-family: Arial, sans-serif;
 	font-size: 1rem;
@@ -25,7 +26,7 @@ dt {
 	margin: 20px 0 10px 0;
 	font-weight: bold;
 	font-size: 1.2rem;
-	color: #666;
+	color: $gray;
 }
 
 .note {
@@ -55,7 +56,7 @@ input[type="text"], textarea {
 
 .body {
 	width: 100%;
-	height: 145px;
+	height: 105px;
 	.note-content { 
 		height: 165px;
 		width: 100%;
@@ -63,16 +64,27 @@ input[type="text"], textarea {
 	}
 }
 
-.footer {
+.normal-footer {
+	display: block;
+	margin: 10px 0;
+	color: $gray;
+	font-size: 0.8rem;
+}
+
+.editing-footer {
 	display: none;
 }
 
 .editing {
 	border: 1px solid #9CBFB2;
 
-	.footer {
+	.editing-footer {
 		float: left;
 		display: block;
+	}
+
+	.normal-footer {
+		display: none;
 	}
 }
 
