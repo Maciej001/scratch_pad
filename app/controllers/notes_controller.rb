@@ -20,7 +20,7 @@ class NotesController < ApplicationController
 	end
 
  	def destroy
- 		respond_with note.destroy
+ 		respond_with note.destroy()
  	end
 
 	def notes

@@ -5,15 +5,16 @@ class App.Views.Notes extends Backbone.View
 
 	initialize: -> 
 		@addActions = new App.Views.AddActions collection: @collection
+		@listenTo(@collection, 'reset', @render)   
+		@listenTo(@collection, 'add', @renderNote)
 
-	render: ->
+	render: =>
 		@$el.html @template()
 		@collection.forEach(@renderNote)
 		@$el.prepend( @addActions.render().el )
 		this
 
 	renderNote: (note) =>
-		# when creating an instance of the view let's pass tagName as additinoal parameter
 		view = new App.Views.ShowNote model: note, tagName: 'li'
 		@$('.notes').append( view.render().el )
 

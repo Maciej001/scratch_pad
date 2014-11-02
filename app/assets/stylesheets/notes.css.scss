@@ -55,7 +55,7 @@ input[type="text"], textarea {
 
 .body {
 	width: 100%;
-	height: 165px;
+	height: 145px;
 	.note-content { 
 		height: 165px;
 		width: 100%;
@@ -71,6 +71,7 @@ input[type="text"], textarea {
 	border: 1px solid #9CBFB2;
 
 	.footer {
+		float: left;
 		display: block;
 	}
 }
@@ -81,8 +82,9 @@ input[type="text"], textarea {
 	border-bottom: 1px solid $light-gray;
 }
 
-.add-note, .save-note {
+.add-note, .save-note, .destroy-note {
 	padding: 7px 15px;
+	margin-right: 10px;
 	background: #D9A23D;
 	color: white;
 	outline: none;
@@ -92,4 +94,8 @@ input[type="text"], textarea {
 
 .save-note {
 	background: #30698C;
+}
+
+.destroy-note {
+	background: #D25A52;
 }
