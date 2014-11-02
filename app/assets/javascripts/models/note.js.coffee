@@ -1,6 +1,11 @@
 class App.Models.Note extends Backbone.Model
 
-	# defines root url for the model, so you can use from eg. templates
-	# href = "#{ note.url }"
-	# we can ommit below line as it's defined in the collection now
-	# urlRoot: '/notes'
+	validate: ->
+		unless @hasTitle() or @hasContent() 
+			"Must provide a title or content"
+
+	hasTitle: -> @hasAttribute('title')
+	hasContent: -> @hasAttribute('content')
+
+	hasAttribute: (attr) ->
+		@has(attr) && @get(attr).trim() != ""

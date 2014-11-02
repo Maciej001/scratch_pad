@@ -10,6 +10,10 @@ class App.Views.ShowNote extends Backbone.View
 		'blur .note-title, .note-content': 'endEditing'
 		'click .destroy-note': 'destroyNote'
 
+	initialize: ->
+		@listenTo(@model, "invalid", @addError)
+		@listenTo(@model, "error", @addError)
+
 	render: ->
 		@$el.html( @template(note: @model) )
 		this   
@@ -28,6 +32,7 @@ class App.Views.ShowNote extends Backbone.View
 
 	beginEditing: ->
 		@$el.addClass('editing')
+		@$el.removeClass("error")
 
 	endEditing: ->
 		@$el.removeClass('editing')
@@ -36,3 +41,7 @@ class App.Views.ShowNote extends Backbone.View
 		@model.destroy()
 		@remove()
 		false
+
+	addError: =>
+		@$el.addClass("error")
+		console.log("error...")
